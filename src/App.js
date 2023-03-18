@@ -1,26 +1,22 @@
-import { Layout } from 'antd';
-import { Outlet } from 'react-router-dom';
-import Header from './Layout/Header';
-import Sidebar from './Layout/Sidebar';
-
-const contentStyle = {
-  textAlign: 'center',
-  minHeight: 120,
-  lineHeight: '120px',
-  color: '#fff',
-  backgroundColor: '#108ee9',
-};
+import AppLayout from 'Layout/AppLayout';
+import Dashboard from 'Pages/Dashboard';
+import Doctors from 'Pages/Doctors';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 
 function App() {
   return (
-    <Layout>
-      <Header />
-      <Layout>
-        <Sidebar />
-        <Layout.Content style={contentStyle}><Outlet /></Layout.Content>
-      </Layout>
-    </Layout>
+    <BrowserRouter>
+      <Routes>
+        <Route path='' element={<Navigate to="/dashboard" />} />
+        <Route path='' element={<AppLayout />}>
+          <Route path='dashboard' element={<Dashboard />} />
+          <Route path='doctors' element={<Doctors />} />
+
+        </Route>
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 

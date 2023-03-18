@@ -3,4 +3,5 @@ export const siderStyle = {
   lineHeight: '120px',
   color: '#fff',
   backgroundColor: '#3ba0e9',
+  width: 200,
 };
