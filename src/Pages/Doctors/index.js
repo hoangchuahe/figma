@@ -1,8 +1,14 @@
-import React from 'react'
+import DoctorCard from 'Component/DoctorCard'
 
 const Doctors = () => {
   return (
-    <div>Doctors</div>
+    <>
+      <DoctorCard />
+      <DoctorCard />
+      <DoctorCard />
+      <DoctorCard />
+    </>
+
   )
 }
 

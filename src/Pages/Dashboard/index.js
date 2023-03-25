@@ -1,9 +1,10 @@
-import { Space, Table, Tag } from "antd";
-import CardList from "Component/CardList"
+import BarChart from "Component/BarChart";
+import CardList from "Component/CardList";
 import LineChart from "Component/LineChart";
+import TableUser from "Component/TableUser";
 import { useState } from "react";
 import { UserData } from "Utils/Data";
-
+import './style.scss';
 const Dashboard = () => {
   const [userData] = useState({
     labels: UserData.map((data) => data.year),
@@ -12,95 +13,41 @@ const Dashboard = () => {
         label: "Users Gained",
         data: UserData.map((data) => data.userGain),
         backgroundColor: [
-          "rgba(75,192,192,1)",
-          "#ecf0f1",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0",
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 205, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(201, 203, 207, 0.2)'
         ],
-        borderColor: "black",
-        borderWidth: 2,
+        borderColor: [
+          'rgb(255, 99, 132)',
+          'rgb(255, 159, 64)',
+          'rgb(255, 205, 86)',
+          'rgb(75, 192, 192)',
+          'rgb(54, 162, 235)',
+          'rgb(153, 102, 255)',
+          'rgb(201, 203, 207)'
+        ],
+        borderWidth: 1
       },
     ],
   });
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      render: (text) => <div>{text}</div>,
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
-    },
-    {
-      title: 'Tags',
-      key: 'tags',
-      dataIndex: 'tags',
-      render: (_, { tags }) => (
-        <>
-          {tags.map((tag) => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-              color = 'volcano';
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
-    {
-      title: 'Action',
-      key: 'action',
-      render: (_, record) => (
-        <Space size="middle">
-          <div>Invite {record.name}</div>
-          <div>Delete</div>
-        </Space>
-      ),
-    },
-  ];
-  const data = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sydney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
-    },
-  ]
+
   return (
     <div>
       <CardList />
-      <div style={{ width: 700 }}>
-        <LineChart chartData={userData} />
+      <div className="chart-container">
+        <div className="chart-item">
+          <LineChart chartData={userData} />
+        </div>
+        <div className="chart-item">
+          <BarChart chartData={userData} />
+        </div>
       </div>
-      <Table columns={columns} dataSource={data} />
+
+      <TableUser />
     </div>
   )
 }

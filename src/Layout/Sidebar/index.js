@@ -1,9 +1,7 @@
-import { Layout } from 'antd'
-import React from 'react'
-import { siderStyle } from './handler'
-import { MailOutlined, SettingOutlined, AppstoreOutlined } from '@ant-design/icons';
-import { Menu } from 'antd';
-import { useState } from 'react';
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { siderStyle } from './handler';
 const Sidebar = () => {
   const getItem = (label, key, icon, children, type) => {
     return {
@@ -18,23 +16,20 @@ const Sidebar = () => {
     getItem('Dashboard', 'dashboard', <MailOutlined />,),
     getItem('Doctors', 'doctors', <AppstoreOutlined />,),
     getItem('Patients', 'patients', <SettingOutlined />,),
+    getItem('Edit Doctor', 'edit', <MailOutlined />,),
+
   ];
-  const rootSubmenuKeys = ['dashboard', 'doctors', 'patients'];
-  const [openKeys, setOpenKeys] = useState(['dashboard']);
-  const onOpenChange = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-    }
+
+  const navigate = useNavigate()
+
+  const onClick = (e) => {
+    navigate(e.key)
   };
   return (
     <Layout.Sider style={siderStyle}>
       <Menu
+        onClick={onClick}
         mode="inline"
-        openKeys={openKeys}
-        onOpenChange={onOpenChange}
         style={{
           height: '100%',
         }}
