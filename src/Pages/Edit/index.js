@@ -1,13 +1,8 @@
 import {
-  AutoComplete,
   Button,
-  Cascader,
-  Col,
   DatePicker,
   Form,
   Input,
-  InputNumber,
-  Row,
   Select,
   Upload,
   Radio,
@@ -17,7 +12,6 @@ import React from 'react'
 import { PlusOutlined } from '@ant-design/icons'
 
 const { Option } = Select
-const { RangePicker } = DatePicker
 const normFile = (e) => {
   console.log('Upload event:', e)
   if (Array.isArray(e)) {
@@ -36,80 +30,11 @@ const formItemLayout = {
   },
 }
 
-const tailFormItemLayout = {
-  wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 16,
-      offset: 8,
-    },
-  },
-}
-
 const EditDoctor = () => {
-  // const formRef = React.useRef(null);
-  // const onGenderChange = (value) => {
-  //   switch (value) {
-  //     case 'male':
-  //       formRef.current?.setFieldsValue({
-  //         note: 'Hi, man!',
-  //       });
-  //       break;
-  //     case 'female':
-  //       formRef.current?.setFieldsValue({
-  //         note: 'Hi, lady!',
-  //       });
-  //       break;
-  //     case 'other':
-  //       formRef.current?.setFieldsValue({
-  //         note: 'Hi there!',
-  //       });
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // };
   const [form] = Form.useForm()
-
   const onFinish = (values) => {
     console.log('Received values of form: ', values)
   }
-
-  const prefixSelector = (
-    <Form.Item name='prefix' noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value='86'>+86</Option>
-        <Option value='87'>+87</Option>
-      </Select>
-    </Form.Item>
-  )
-
-  const suffixSelector = (
-    <Form.Item name='suffix' noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value='USD'>$</Option>
-        <Option value='CNY'>¥</Option>
-      </Select>
-    </Form.Item>
-  )
-
-  const [autoCompleteResult, setAutoCompleteResult] = useState([])
-
-  const onWebsiteChange = (value) => {
-    if (!value) {
-      setAutoCompleteResult([])
-    } else {
-      setAutoCompleteResult(['.com', '.org', '.net'].map((domain) => `${value}${domain}`))
-    }
-  }
-
-  const websiteOptions = autoCompleteResult.map((website) => ({
-    label: website,
-    value: website,
-  }))
 
   return (
     <Form

@@ -1,7 +1,14 @@
-import { Space, Table, Tag } from 'antd';
-import { MoreOutlined } from '@ant-design/icons'
+import { Space, Table, Tag, Button } from 'antd';
+// import { MoreOutlined } from '@ant-design/icons'
+import { useNavigate } from "react-router-dom";
 
 const TableSchedule = () => {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate("/home");
+  }
+
   const columns = [
     {
       title: 'Doctor Name',
@@ -44,8 +51,8 @@ const TableSchedule = () => {
       title: 'Action',
       render: (_, record) => (
         <Space size="middle">
-          <a>Edit</a>
-          <a>Delete</a>
+          <Button type="link" onClick={handleClick}>Edit</Button>
+          <Button type="text">Delete</Button>
         </Space>
       ),
     },

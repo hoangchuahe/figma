@@ -1,6 +1,12 @@
-import { Space, Table, Tag } from 'antd';
-import { MoreOutlined } from '@ant-design/icons'
+import { Space, Table, Tag, Button } from 'antd'
+// import { MoreOutlined } from '@ant-design/icons'
+import { useNavigate } from 'react-router-dom'
+import './style.scss';
 const TableUser = () => {
+  const navigate = useNavigate()
+  function handleClick() {
+    navigate('/edit')
+  }
   const columns = [
     {
       title: 'Name',
@@ -29,13 +35,15 @@ const TableUser = () => {
     {
       title: 'Action',
       render: (_, record) => (
-        <Space size="middle">
-          <a>Edit</a>
-          <a>Delete</a>
+        <Space size='middle'>
+          <Button type='link' onClick={handleClick}>
+            Edit
+          </Button>
+          <Button type='text'>Delete</Button>
         </Space>
       ),
     },
-  ];
+  ]
 
   const data = [
     {
@@ -45,7 +53,6 @@ const TableUser = () => {
       address: 'New York No. 1 Lake Park',
       phone: '1234567891',
       email: 'user1@gmail.com',
-      
     },
     {
       key: '2',
@@ -54,7 +61,6 @@ const TableUser = () => {
       address: 'London No. 1 Lake Park',
       phone: '1234567891',
       email: 'user1@gmail.com',
-      
     },
     {
       key: '3',
@@ -63,7 +69,6 @@ const TableUser = () => {
       address: 'Sydney No. 1 Lake Park',
       phone: '1234567891',
       email: 'user1@gmail.com',
-      
     },
     {
       key: '4',
@@ -72,14 +77,25 @@ const TableUser = () => {
       address: 'London No. 2 Lake Park',
       phone: '1234567891',
       email: 'user1@gmail.com',
-      
     },
-  ];
+  ]
   const onChange = (pagination, sorter, extra) => {
-    console.log('params', pagination, sorter, extra);
-  };
+    console.log('params', pagination, sorter, extra)
+  }
   return (
-    <Table columns={columns} dataSource={data} onChange={onChange}/>
+    <>
+      <div className='nav'>
+        <div>
+          <p style={{ fontSize: '25px' }}>Patients</p>
+        </div>
+        <div>
+          <Button type='primary' style={{ fontSize: '16px' }} onClick={handleClick}>
+            Add Patient
+          </Button>
+        </div>
+      </div>
+      <Table columns={columns} dataSource={data} onChange={onChange} />
+    </>
   )
 }
 

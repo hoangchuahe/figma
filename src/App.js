@@ -6,6 +6,8 @@ import Patients from 'Pages/Patients';
 import Appointments from 'Pages/Appointment';
 import DoctorsSchedule from 'Pages/DoctorsSchedule';
 import EditAppointment from 'Pages/Edit appointment';
+import Prescriptions from 'Pages/Prescriptions';
+import WorkCalendar from 'Pages/WorkCalendar';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './style.scss'
 
@@ -22,6 +24,8 @@ function App() {
           <Route path='appointments' element={<Appointments />} />
           <Route path='schedule' element={<DoctorsSchedule />} />
           <Route path='edit-appointment' element={<EditAppointment />} />
+          <Route path='prescriptions' element={<Prescriptions />} />
+          <Route path='calendar' element={<WorkCalendar />} />
         </Route>
       </Routes>
     </BrowserRouter>

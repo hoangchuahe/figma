@@ -16,7 +16,7 @@ const data = [
 const Chart = () => {
   return (
     <div className='chart'>
-      <div className="title">Last 6 Months Revenue</div>
+      <div className="title">Patient Total</div>
         <ResponsiveContainer width="100%" aspect={2/1}>
         <AreaChart width={'100%'} height={250} data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
             <defs>

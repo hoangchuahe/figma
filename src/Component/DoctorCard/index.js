@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
 import { Button, Card, Col, Row, Popover } from 'antd'
 import { MoreOutlined } from '@ant-design/icons'
+import { useNavigate } from 'react-router-dom';
 import { EditOutlined, EllipsisOutlined, DeleteFilled} from '@ant-design/icons';
 import './style.scss'
 const DoctorCard = () => {
+  const navigate = useNavigate()
+  function handleClick() {
+    navigate('/edit')
+  }
   const listData = [
     {
       name: 'Cristina Groves',
@@ -27,20 +32,20 @@ const DoctorCard = () => {
     },
   ]
 
-  const [open, setOpen] = useState(false);
-  const hide = () => {
-    setOpen(false);
-  };
-  const handleOpenChange = (newOpen) => {
-    setOpen(newOpen);
-  };
+  // const [open, setOpen] = useState(false);
+  // const hide = () => {
+  //   setOpen(false);
+  // };
+  // const handleOpenChange = (newOpen) => {
+  //   setOpen(newOpen);
+  // };
 
   return (
     <Row gutter={16}>
       {listData.map((data, i) => (
         <Col span={8} key={i}>
           <Card className='doctor-card' actions={[
-          <EditOutlined key="edit" />,
+          <EditOutlined key="edit"  onClick={handleClick} />,
           <DeleteFilled key="delete" />,
         ]}>
             <div className='avatar'>

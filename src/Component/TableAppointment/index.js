@@ -1,6 +1,11 @@
-import { Space, Table, Tag } from 'antd';
+import { Space, Table, Tag, Button } from 'antd';
 import { MoreOutlined } from '@ant-design/icons'
+import { useNavigate } from 'react-router-dom';
 const TableAppointment = () => {
+  const navigate = useNavigate()
+  function handleClick() {
+    navigate('/edit-appointment')
+  }
   const columns = [
     {
       title: 'ID',
@@ -58,8 +63,8 @@ const TableAppointment = () => {
       title: 'Action',
       render: (_, record) => (
         <Space size="middle">
-          <a>Edit</a>
-          <a>Delete</a>
+          <Button type='link' onClick={handleClick}>Edit</Button>
+          <Button type='text'>Delete</Button>
         </Space>
       ),
     },

@@ -1,4 +1,4 @@
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { MailOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { siderStyle } from './handler';
@@ -27,6 +27,7 @@ const Sidebar = () => {
     getItem('Edit Appointment', 'edit-appointment', <MailOutlined />,),
     getItem('Appointments', 'appointments', <ContactsOutlined />,),
     getItem('Doctor Schedule', 'schedule', <CalendarOutlined />,),
+    getItem('Prescriptions', 'prescriptions', <CalendarOutlined />,),
   ];
 
   const navigate = useNavigate()
