@@ -2,6 +2,13 @@ import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/ico
 import { Layout, Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { siderStyle } from './handler';
+import {
+  CalendarOutlined,
+  UserOutlined,
+  DashboardOutlined,
+  ContactsOutlined,
+  TeamOutlined,
+} from '@ant-design/icons';
 const Sidebar = () => {
   const getItem = (label, key, icon, children, type) => {
     return {
@@ -13,11 +20,13 @@ const Sidebar = () => {
     };
   }
   const items = [
-    getItem('Dashboard', 'dashboard', <MailOutlined />,),
-    getItem('Doctors', 'doctors', <AppstoreOutlined />,),
-    getItem('Patients', 'patients', <SettingOutlined />,),
+    getItem('Dashboard', 'dashboard', <DashboardOutlined />,),
+    getItem('Doctors', 'doctors', <TeamOutlined />,),
+    getItem('Patients', 'patients', <UserOutlined />,),
     getItem('Edit Doctor', 'edit', <MailOutlined />,),
-
+    getItem('Edit Appointment', 'edit-appointment', <MailOutlined />,),
+    getItem('Appointments', 'appointments', <ContactsOutlined />,),
+    getItem('Doctor Schedule', 'schedule', <CalendarOutlined />,),
   ];
 
   const navigate = useNavigate()

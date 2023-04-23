@@ -1,7 +1,7 @@
 .doctor-card {
   background: #FFFFFF;
   border-radius: 4px;
-
+  margin-bottom: 8px;
   .ant-card-body {
     .avatar {
       img {
@@ -33,6 +33,16 @@
       font-size: 14px;
       line-height: 21px;
       color: #666666;
+    }
+
+    .More{
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+    .option{
+      display: flex;
+      flex-direction: row;
     }
   }
 }

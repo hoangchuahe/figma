@@ -49,29 +49,8 @@ const tailFormItemLayout = {
   },
 }
 
-const EditDoctor = () => {
-  // const formRef = React.useRef(null);
-  // const onGenderChange = (value) => {
-  //   switch (value) {
-  //     case 'male':
-  //       formRef.current?.setFieldsValue({
-  //         note: 'Hi, man!',
-  //       });
-  //       break;
-  //     case 'female':
-  //       formRef.current?.setFieldsValue({
-  //         note: 'Hi, lady!',
-  //       });
-  //       break;
-  //     case 'other':
-  //       formRef.current?.setFieldsValue({
-  //         note: 'Hi there!',
-  //       });
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // };
+const EditAppointment = () => {
+
   const [form] = Form.useForm()
 
   const onFinish = (values) => {
@@ -270,4 +249,4 @@ const EditDoctor = () => {
   )
 }
 
-export default EditDoctor
+export default EditAppointment

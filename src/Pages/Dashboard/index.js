@@ -1,6 +1,7 @@
 import BarChart from "Component/BarChart";
 import CardList from "Component/CardList";
 import LineChart from "Component/LineChart";
+import Chart from "Component/chart/Chart";
 import TableUser from "Component/TableUser";
 import { useState } from "react";
 import { UserData } from "Utils/Data";
@@ -40,9 +41,10 @@ const Dashboard = () => {
       <CardList />
       <div className="chart-container">
         <div className="chart-item">
-          <LineChart chartData={userData} />
+          <Chart/>
         </div>
-        <div className="chart-item">
+        
+        <div className="chart-bar">
           <BarChart chartData={userData} />
         </div>
       </div>
